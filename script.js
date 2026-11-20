@@ -1,31 +1,27 @@
-//your code here
 let images = [
-    "img1",
-    "img2",
-    "img3",
-    "img4",
-    "img5"
+    "https://picsum.photos/id/237/200/300",
+    "https://picsum.photos/seed/picsum/200/300",
+    "https://picsum.photos/200/300?grayscale",
+    "https://picsum.photos/200/300/",
+    "https://picsum.photos/200/300.jpg"
 ];
 
-let randomIndex = Math.floor(Math.random() * 5);
+let randomIndex = Math.floor(Math.random() * images.length);
 
 images.push(images[randomIndex]);
 
-images.sort(() => Math.random() - 0.5);
 
+images.sort(() => Math.random() - 0.5);
 let imageElements = document.querySelectorAll("#image-container img");
 
 let reset = document.getElementById("reset");
 let verify = document.getElementById("verify");
-let heading = document.getElementById("h");
 let para = document.getElementById("para");
 
 let selectedImages = [];
 
 imageElements.forEach(function(image, index) {
-
-    image.classList.add(images[index]);
-
+    image.src = images[index];
 });
 
 imageElements.forEach(function(image) {
@@ -46,14 +42,10 @@ imageElements.forEach(function(image) {
 
         reset.style.display = "inline-block";
 
-        verify.style.display = "none";
-
         para.innerText = "";
 
         if (selectedImages.length === 2) {
-
             verify.style.display = "inline-block";
-
         }
 
     });
@@ -65,13 +57,10 @@ reset.addEventListener("click", function() {
     selectedImages = [];
 
     imageElements.forEach(function(image) {
-
         image.classList.remove("selected");
-
     });
 
     reset.style.display = "none";
-
     verify.style.display = "none";
 
     para.innerText = "";
@@ -79,17 +68,11 @@ reset.addEventListener("click", function() {
 });
 
 
-// Verify button
 verify.addEventListener("click", function() {
 
     if (selectedImages.length === 2) {
 
-        let firstImage = selectedImages[0];
-        let secondImage = selectedImages[1];
-
-        if (
-            firstImage.className === secondImage.className
-        ) {
+        if (selectedImages[0].src === selectedImages[1].src) {
 
             para.innerText = "You are a human. Congratulations!";
 
