@@ -1,46 +1,49 @@
-.img1 {
-    content: url("https://picsum.photos/id/237/200/300");
-}
 
-.img2 {
-    content: url("https://picsum.photos/seed/picsum/200/300");
-}
-
-.img3 {
-    content: url("https://picsum.photos/200/300?grayscale");
-}
-
-.img4 {
-    content: url("https://picsum.photos/200/300/");
-}
-
-.img5 {
-    content: url("https://picsum.photos/200/300.jpg");
-}
-
-img {
-    margin: 10px;
-    border: 5px solid #555;
-    width: 10%;
-    cursor: pointer;
-}
-
-.flex {
+body {
     display: flex;
     justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+    font-family: Arial, sans-serif;
+}
+
+.player {
+    width: 80%;
+    max-width: 700px;
+    background: black;
+    padding: 10px;
+}
+
+.player__video {
+    width: 100%;
+    display: block;
+}
+
+.player__controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
     flex-wrap: wrap;
 }
 
-.selected {
-    border: 5px solid rgb(0, 195, 255);
-}
-
-p {
-    text-align: center;
-}
-
 button {
-    margin: 20px;
-    padding: 8px 20px;
+    padding: 8px 12px;
     cursor: pointer;
+}
+
+.progress {
+    flex: 1;
+    cursor: pointer;
+}
+
+.player__slider {
+    width: 80px;
+    cursor: pointer;
+}
+
+#error {
+    color: red;
+    text-align: center;
 }

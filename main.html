@@ -1,38 +1,35 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>I'm not a robot</title>
+    <title>Custom Video Player</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <main>
+    <div class="player">
+        <video class="player__video" src="download.mp4"></video>
 
-        <h3 id="h">
-            Please click on the identical tiles to verify that you are not a robot.
-        </h3>
+        <div class="player__controls">
+            <button class="player__button toggle" title="Play/Pause">►</button>
 
-        <div class="flex" id="image-container">
-            <img id="img1">
-            <img id="img2">
-            <img id="img3">
-            <img id="img4">
-            <img id="img5">
-            <img id="img6">
+            <input type="range" class="progress" min="0" max="100" value="0" step="0.1">
+            
+            <input type="range" class="player__slider" name="volume"
+                min="0" max="1" step="0.05" value="1">
+
+            <input type="range" class="player__slider" name="playbackRate"
+                min="0.5" max="2" step="0.1" value="1">
+
+            <button data-skip="-10">« 10s</button>
+            <button data-skip="25">25s »</button>
         </div>
 
-        <div class="flex">
-            <button id="reset" style="display: none;">Reset</button>
-            <button id="verify" style="display: none;">Verify</button>
-        </div>
-
-        <p id="para"></p>
-
-    </main>
+        <p id="error"></p>
+    </div>
 
     <script src="./script.js"></script>
-
 </body>
 </html>
